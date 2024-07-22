@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { YourEntity } from './your-entity.entity';
+import { Product } from './entities/product.entity';
+import { ProductService } from './product/product.service';
+import { ProductController } from './product/product.controller';
 
 @Module({
   imports: [
@@ -8,15 +10,15 @@ import { YourEntity } from './your-entity.entity';
       type: 'postgres',
       host: '127.0.0.1',
       port: 5432,
-      username: 'user',
+      username: 'postgres',
       password: '123@123a',
       database: 'ecommerce',
-      entities: [YourEntity],
+      entities: [Product],
       synchronize: true, // Chỉ nên bật trong môi trường phát triển
     }),
-    TypeOrmModule.forFeature([YourEntity]),
+    TypeOrmModule.forFeature([Product]),
   ],
-  controllers: [],
-  providers: [],
+  controllers: [ProductController],
+  providers: [ProductService],
 })
 export class AppModule {}
