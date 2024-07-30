@@ -14,4 +14,7 @@ export class Product {
 
     @Column()
     image: string;
+
+    @Column()
+    isFavorite: boolean;
 }
