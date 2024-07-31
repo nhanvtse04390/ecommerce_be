@@ -16,5 +16,11 @@ export class Product {
     image: string;
 
     @Column()
+    description: string;
+
+    @Column()
     isFavorite: boolean;
+
+    @Column()
+    isAddToCard: boolean;
 }
